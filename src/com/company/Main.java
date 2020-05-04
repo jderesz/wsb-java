@@ -13,5 +13,9 @@ public class Main {
         bird.takeForAWalk();
         bird.takeForAWalk();
         bird.feed();
+
+        Human marta = new Human();
+        Car opel = new Car("Opel", "Astra");
+        marta.setCar(opel);
     }
 }
