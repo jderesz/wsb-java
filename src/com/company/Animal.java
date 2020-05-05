@@ -22,7 +22,7 @@ public final class Animal {
 
     public void feed() {
         if(this.weight <= 0) {
-            System.out.println("Pet died!");
+            System.out.println("Umarło mu się :(");
         }
 
         this.weight += 0.1;
@@ -32,9 +32,11 @@ public final class Animal {
         this.weight -= 0.1;
 
         if(this.weight <= 0) {
-            System.out.println("Pet died!");
+            System.out.println("Umarło mu się :(");
         }
     }
 
-
+    public String toString(){
+        return this.specie;
+    }
 }

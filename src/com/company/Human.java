@@ -1,5 +1,7 @@
 package com.company;
 
+import devices.Car;
+
 public final class Human {
     private Animal pet;
     private Car car;
@@ -18,8 +20,8 @@ public final class Human {
     }
 
     public void setSalary(Double salary) {
-        if (salary <= 0) {
-            System.out.println("Salary cannot be lower than zero!");
+        if (salary < 0) {
+            System.out.println("Pensja nie moze byc mniejsza od zera!");
         }
         System.out.println("Nowe dane zostały wysłane do systemu księgowego.");
         System.out.println("Pamiętaj aby odebrać aneks do umowy od pani Hani z kadr.");
@@ -29,5 +31,9 @@ public final class Human {
 
     public Car getCar() {
         return car;
+    }
+
+    public String toString(){
+        return "Ten czlowiek zarabia tyle: "+this.salary;
     }
 }
