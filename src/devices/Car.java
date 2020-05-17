@@ -2,7 +2,7 @@ package devices;
 
 import com.company.Human;
 
-final public class Car extends Device {
+public abstract class Car extends Device {
     private Double weight = 100.0;
     public Double value = 100.0;
 
@@ -34,5 +34,7 @@ final public class Car extends Device {
 
         System.out.println("Sprzedano " + this.model + " za " + price);
     }
+
+    public abstract void refuel();
 }
 
