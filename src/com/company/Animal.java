@@ -1,6 +1,6 @@
 package com.company;
 
-public final class Animal {
+public final class Animal implements Salleable {
     final String specie;
     private Double weight = 1.0;
 
@@ -38,5 +38,23 @@ public final class Animal {
 
     public String toString(){
         return this.specie;
+    }
+
+    public void sell(Human seller, Human buyer, double price) {
+        if (seller.getPet() != this) {
+            System.out.println("Sprzedający nie posiada zwierzaka");
+            return;
+        }
+        if (buyer.cash < price) {
+            System.out.println("Kupujący nie posiada wystarczającej ilości pieniędzy");
+            return;
+        }
+
+        seller.setPet(null);
+        buyer.setPet(this);
+        buyer.cash -= price;
+        seller.cash += price;
+
+        System.out.println("Sprzedano " + this.specie + " za " + price);
     }
 }

@@ -44,5 +44,17 @@ public class Main {
         samsung.turnOn();
         audi.turnOn();
 
+        marta.setCar(audi);
+        marta.cash = 200.0;
+        pawel.cash = 200.0;
+
+        System.out.println("Pieniadze Marty: " + marta.cash);
+        System.out.println("Pieniadze Pawla: " + pawel.cash);
+        audi.sell(marta, pawel, 90);
+        System.out.println("Pieniadze Marty: " + marta.cash);
+        System.out.println("Pieniadze Pawla: " + pawel.cash);
+        audi.sell(marta, pawel, 90);
+        audi.sell(pawel, marta, 900);
+
     }
 }
