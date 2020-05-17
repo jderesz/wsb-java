@@ -1,18 +1,18 @@
 package devices;
 
-final public class Car {
-    final String model;
-    final String producer;
+final public class Car extends Device {
     private Double weight = 100.0;
     public Double value = 100.0;
 
-    public Car(String model, String producer) {
-        this.model = model;
-        this.producer = producer;
+    public Car(String producer, String model, int yearOfProduction, double value, double weight) {
+        super(producer, model, yearOfProduction);
+        this.value = value;
+        this.weight = weight;
     }
 
-    public String toString(){
-        return this.model+" "+this.producer;
+    @Override
+    public void turnOn() {
+        System.out.println(this.model + " are running");
     }
 }
 
