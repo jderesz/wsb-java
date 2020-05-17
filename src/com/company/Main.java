@@ -1,12 +1,15 @@
 package com.company;
 
+import creatures.Animal;
+import creatures.FarmAnimal;
+import creatures.Pet;
 import devices.Car;
 import devices.Phone;
 
 public class Main {
 
     public static void main(String[] args) {
-        Animal bird = new Animal("bird");
+        Animal bird = new FarmAnimal("bird");
         bird.takeForAWalk();
         bird.feed();
         bird.takeForAWalk();
@@ -32,7 +35,7 @@ public class Main {
         Car audi = new Car("Audi", "A4", 2008, 40000.0, 1550.0);
         System.out.println(audi);
 
-        Animal kot = new Animal("Kot");
+        Animal kot = new Pet("Kot");
         System.out.println(kot);
 
         Human pawel = new Human();
@@ -56,5 +59,9 @@ public class Main {
         audi.sell(marta, pawel, 90);
         audi.sell(pawel, marta, 900);
 
+        kot.feed(20.5);
+        kot.feed();
+        bird.feed(20.5);
+        bird.feed();
     }
 }

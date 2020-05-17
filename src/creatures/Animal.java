@@ -1,6 +1,9 @@
-package com.company;
+package creatures;
 
-public final class Animal implements Salleable {
+import com.company.Human;
+import com.company.Salleable;
+
+public abstract class Animal implements Salleable, Feedable {
     final String specie;
     private Double weight = 1.0;
 
@@ -20,12 +23,23 @@ public final class Animal implements Salleable {
         }
     }
 
+    @Override
     public void feed() {
         if(this.weight <= 0) {
             System.out.println("Umarło mu się :(");
+            return;
         }
 
         this.weight += 0.1;
+    }
+
+    @Override
+    public void feed(double foodWeight) {
+        if(this.weight <= 0) {
+            System.out.println("Umarło mu się :(");
+            return;
+        }
+        this.weight += foodWeight;
     }
 
     public void takeForAWalk() {
