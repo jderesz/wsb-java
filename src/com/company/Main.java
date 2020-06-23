@@ -7,7 +7,7 @@ import devices.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Animal bird = new FarmAnimal("bird");
         bird.takeForAWalk();
         bird.feed();
@@ -45,6 +45,25 @@ public class Main {
 
         samsung.turnOn();
         audi.turnOn();
+
+
+        Application app1 = new Application("app1", "1.0", 100.0);
+        Application app2 = new Application("app2", "1.4", 5.0);
+        Application app3 = new Application("app3", "2.5", 3.36);
+        Application app4 = new Application("app4", "3.3.3", 8.99);
+
+        marta.cash = 1000.0;
+
+        samsung.installApplication(marta, app1);
+        samsung.installApplication(marta, app3);
+        samsung.installApplication(marta, app4);
+
+        System.out.println(samsung.getPriceOfApplications());
+        samsung.printFreeApplications();
+        samsung.printApplicationsByName();
+        samsung.printApplicationsByPriceDesc();
+        System.out.println(samsung.isApplicationInstalledByName("app2"));
+        System.out.println(samsung.isApplicationInstalledByName("app3"));
 
         marta.setCar(audi, 0);
         marta.cash = 200.0;
