@@ -71,6 +71,15 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+
+        System.out.println(audi.isOwner(marta));
+        System.out.println(audi.isOwner(pawel));
+        System.out.println(audi.wasTransactionBetween(marta, pawel));
+        System.out.println(audi.wasTransactionBetween(pawel, marta));
+        System.out.println(audi.wasOwner(marta));
+        System.out.println(audi.transactionCount());
+        System.out.println(audi.getOwner());
+
         kot.feed(20.5);
         kot.feed();
         bird.feed(20.5);

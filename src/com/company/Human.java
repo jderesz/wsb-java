@@ -31,6 +31,12 @@ public final class Human {
             return;
         }
         this.cars[carPosition] = car;
+
+        try {
+            car.addOwner(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public double getAllCarsValue() {
