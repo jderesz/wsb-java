@@ -4,6 +4,7 @@ public abstract class Device {
     final String model;
     final String producer;
     final int yearOfProduction;
+    protected double value;
 
     public Device(String producer, String model, int yearOfProduction) {
         this.producer = producer;

@@ -21,7 +21,7 @@ public class Main {
 
         Human marta = new Human();
         Car opel = new Disel("Opel", "Astra", 2002, 8000.0, 1500.0);
-        marta.setCar(opel);
+        marta.setCar(opel, 0);
 
         Car opel2 = new Electric("Opel", "Astra", 2012, 18000.0, 1750.0);
         if(opel.equals(opel2)) {
@@ -46,17 +46,30 @@ public class Main {
         samsung.turnOn();
         audi.turnOn();
 
-        marta.setCar(audi);
+        marta.setCar(audi, 0);
         marta.cash = 200.0;
         pawel.cash = 200.0;
 
         System.out.println("Pieniadze Marty: " + marta.cash);
         System.out.println("Pieniadze Pawla: " + pawel.cash);
-        audi.sell(marta, pawel, 90);
+        try {
+            audi.sell(marta, pawel, 90);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         System.out.println("Pieniadze Marty: " + marta.cash);
         System.out.println("Pieniadze Pawla: " + pawel.cash);
-        audi.sell(marta, pawel, 90);
-        audi.sell(pawel, marta, 900);
+        try {
+            audi.sell(marta, pawel, 90);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            audi.sell(pawel, marta, 900);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
         kot.feed(20.5);
         kot.feed();

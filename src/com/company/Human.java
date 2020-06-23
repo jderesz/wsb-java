@@ -4,15 +4,48 @@ import creatures.Animal;
 import devices.Car;
 import devices.Phone;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public final class Human {
     private Animal pet;
-    private Car car;
+    public Car[] cars;
     private Phone phone;
     private Double salary = 0.0;
     public Double cash;
+    public int carLimit = 2;
 
-    public void setCar(Car car) {
-        this.car = car;
+    public Human() {
+        this.cars = new Car[this.carLimit];
+    }
+
+    public Human(int carLimit) {
+        this.carLimit = carLimit;
+        this.cars = new Car[this.carLimit];
+    }
+
+    public void setCar(Car car, int carPosition) {
+        if (carPosition < 0 || carPosition > this.carLimit)
+        {
+            System.out.println("Podano nieistniejące miejsce");
+            return;
+        }
+        this.cars[carPosition] = car;
+    }
+
+    public double getAllCarsValue() {
+        double totalValue = 0.0;
+        for (Car car : this.cars)
+        {
+            if (car != null) {
+                totalValue += car.getValue();
+            }
+        }
+        return totalValue;
+    }
+
+    public void sortCarsByYear() {
+        Arrays.sort(this.cars, Comparator.comparing(Car::getValue));
     }
 
     public void setSalary(Double salary) {
@@ -25,8 +58,31 @@ public final class Human {
         this.salary = salary;
     }
 
-    public Car getCar() {
-        return car;
+    public Car getCar(int carPosition) {
+        if (carPosition < 0 || carPosition > this.carLimit)
+        {
+            System.out.println("Podano nieistniejące miejsce");
+            return null;
+        }
+        return cars[carPosition];
+    }
+
+    public boolean hasCar(Car car) {
+        for (Car parkedCar : this.cars) {
+            if (parkedCar == car) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean hasFreeCarSlot() {
+        for (Car car : this.cars) {
+            if (car == null) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public String toString(){
